@@ -52,7 +52,7 @@ async function extractNyukanSeijiTextData(pdf: PDFDocumentProxy, range: [number,
   const lines: TextSpan[][] = []
   let currentLine!: TextSpan[]
   const nextEntry = () => {
-    if (currentLine?.length && currentLine[0].str !== "漢　　字") {
+    if (currentLine?.length) {
       lines.push(currentLine)
     }
     currentLine = []
@@ -78,9 +78,13 @@ async function extractNyukanSeijiTextData(pdf: PDFDocumentProxy, range: [number,
       if (item.column % 3 === 0 && prevColumn % 3 !== 0) {
         nextEntry()
       }
+      if (item.str == "efa3") {
+        console.log(item, prevColumn)
+      }
       prevColumn = item.column
       currentLine.push(item)
     }
+    nextEntry()
   }
   nextEntry()
   return lines
