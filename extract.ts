@@ -78,9 +78,6 @@ async function extractNyukanSeijiTextData(pdf: PDFDocumentProxy, range: [number,
       if (item.column % 3 === 0 && prevColumn % 3 !== 0) {
         nextEntry()
       }
-      if (item.str == "efa3") {
-        console.log(item, prevColumn)
-      }
       prevColumn = item.column
       currentLine.push(item)
     }
