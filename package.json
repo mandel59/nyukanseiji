@@ -1,6 +1,6 @@
 {
   "name": "@mandel59/nyukanseiji",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Nyūkan seiji",
   "main": "nyukanseiji.json",
   "typings": "nyukanseiji.d.ts",
